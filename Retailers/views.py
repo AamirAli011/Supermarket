@@ -1,5 +1,5 @@
 from django.contrib.auth.models import User
-from .models import Customer, Product, Retailer
+from .models import Product, Retailer
 from rest_framework import viewsets
 from rest_framework import permissions
 from Retailers.serializers import ProductSerializer, RetailerSerializer,UserSerializer
@@ -24,8 +24,6 @@ class UserViewSet(viewsets.ModelViewSet):
         return qs
 
 
-    
-
 class ProductViewSet(viewsets.ModelViewSet):
     queryset=Product.objects.all()
     serializer_class=ProductSerializer
@@ -39,10 +37,6 @@ class ProductViewSet(viewsets.ModelViewSet):
             qs = qs.filter(retailer_id=retailer_id)
         
         return qs
-
-
-
-
 
 
 class RetailerViewSet(viewsets.ModelViewSet):
